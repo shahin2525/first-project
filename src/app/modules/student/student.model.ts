@@ -101,10 +101,6 @@ const studentSchema = new Schema<TStudent, StudentModel>(
       type: String,
       required: [true, 'Email is required'],
       unique: true,
-      // validate: {
-      //   validator: (value: string) => validator.isEmail(value),
-      //   message: '{VALUE} is not valid',
-      // },
     },
     bloodGroup: { type: String, enum: ['A-', 'B+', 'AB+', 'O-'] },
     presentAddress: {
@@ -129,6 +125,10 @@ const studentSchema = new Schema<TStudent, StudentModel>(
     admissionSemester: {
       type: Schema.Types.ObjectId,
       ref: 'AcademicSemester',
+    },
+    academicDepartment: {
+      type: Schema.Types.ObjectId,
+      ref: 'AcademicDepartment',
     },
 
     isDeleted: { type: Boolean, default: false },

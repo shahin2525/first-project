@@ -6,22 +6,21 @@ import { AcademicDepartmentServices } from './academicDepartment.service';
 const createAcademicDepartment = catchAsync(async (req, res) => {
   const result =
     await AcademicDepartmentServices.createAcademicDepartmentIntoDB(req.body);
-
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Academic department create successfully',
+    message: 'Academic department is created successfully',
     data: result,
   });
 });
-
 const getAllAcademicDepartment = catchAsync(async (req, res) => {
   const result =
     await AcademicDepartmentServices.getAllAcademicDepartmentIntoDB();
+
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Academic departments are retrieve successfully',
+    message: 'Get all academic department successfully',
     data: result,
   });
 });
@@ -35,11 +34,10 @@ const getSingleAcademicDepartment = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Academic department is retrieve successfully',
+    message: 'Single depart is retrieve successfully',
     data: result,
   });
 });
-
 const updateAcademicDepartment = catchAsync(async (req, res) => {
   const { departmentId } = req.params;
   const result =
@@ -50,12 +48,12 @@ const updateAcademicDepartment = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Academic department updated successfully',
+    message: ' department updated  successfully',
     data: result,
   });
 });
 
-export const AcademicDepartmentController = {
+export const AcademicDepartmentControllers = {
   createAcademicDepartment,
   getAllAcademicDepartment,
   getSingleAcademicDepartment,
